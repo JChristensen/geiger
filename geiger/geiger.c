@@ -40,6 +40,8 @@
 	
 	Change log:
 	8/4/11 1.00: Initial release for Chaos Camp 2011!
+	25Jan2014 by Jack Christensen: Store default beep mode (on or off) in EEPROM. User can change the default
+								   by pressing the mute button while powering the Geiger counter on.
 
 
 		Copyright 2011 Jeff Keyzer, MightyOhm Engineering
@@ -67,6 +69,7 @@
 */
 
 // Includes
+#include <avr/eeprom.h>		// EEPROM handling
 #include <avr/io.h>			// this contains the AVR IO port definitions
 #include <avr/interrupt.h>	// interrupt service routines
 #include <avr/pgmspace.h>	// tools used to store variables in program memory
@@ -96,6 +99,7 @@ void checkevent(void);	// flash LED and beep the piezo
 void sendreport(void);	// log data over the serial port
 
 // Global variables
+uint8_t beepDefault;
 volatile uint8_t nobeep;		// flag used to mute beeper
 volatile uint16_t count;		// number of GM events that has occurred
 volatile uint16_t slowcpm;		// GM counts per minute in slow mode
@@ -317,6 +321,12 @@ int main(void)
 	DDRD = _BV(PD6);	// configure PULSE output
 	PORTD |= _BV(PD3);	// enable internal pull up resistor on pin connected to button
 	
+	nobeep = eeprom_read_byte(&beepDefault);	// read the current beep default from EEPROM
+	if ((PIND & _BV(PD3)) == 0)	{				// Does the user want to change the beep default?
+		nobeep = !nobeep;
+		eeprom_write_byte(&beepDefault, nobeep);		
+	}
+		
 	// Set up external interrupts	
 	// INT0 is triggered by a GM impulse
 	// INT1 is triggered by pushing the button
