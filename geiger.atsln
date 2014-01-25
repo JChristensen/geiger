@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "geiger", "geiger\geiger.cppproj", "{66E604DF-23DA-4BCE-8F9D-EE67FE7BC38A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66E604DF-23DA-4BCE-8F9D-EE67FE7BC38A}.Debug|AVR.ActiveCfg = Debug|AVR
+		{66E604DF-23DA-4BCE-8F9D-EE67FE7BC38A}.Debug|AVR.Build.0 = Debug|AVR
+		{66E604DF-23DA-4BCE-8F9D-EE67FE7BC38A}.Release|AVR.ActiveCfg = Release|AVR
+		{66E604DF-23DA-4BCE-8F9D-EE67FE7BC38A}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
