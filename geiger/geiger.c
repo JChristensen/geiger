@@ -40,7 +40,7 @@
 
     Change log:
     8/4/11 1.00: Initial release for Chaos Camp 2011!
-    25Jan2014 by Jack Christensen
+    18Apr2014 by Jack Christensen
                  Store default beep mode (on or off) in EEPROM. User can change the default
                  by pressing the mute button while powering the Geiger counter on.
 
