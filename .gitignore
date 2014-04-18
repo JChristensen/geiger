@@ -1,4 +1,4 @@
-geiger/Debug/*.*
 *.atsuo
-*.cppproj
-geiger/*.cppproj
+*.atsln
+geiger/Debug/
+geiger/geiger.cppproj
