@@ -5,7 +5,7 @@
     <ProjectVersion>6.1</ProjectVersion>
     <ToolchainName>com.Atmel.AVRGCC8.CPP</ToolchainName>
     <ProjectGuid>{66e604df-23da-4bce-8f9d-ee67fe7bc38a}</ProjectGuid>
-    <avrdevice>ATtiny4313</avrdevice>
+    <avrdevice>ATtiny2313</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
     <Language>CPP</Language>
@@ -26,13 +26,14 @@
     <UncachedRange />
     <BootSegment>0</BootSegment>
     <AsfFrameworkConfig>
-      <framework-data xmlns="">
+      <framework-data>
         <options />
         <configurations />
         <files />
         <documentation help="" />
+        <offline-documentation help="" />
         <dependencies>
-          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.7.2" />
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.6.0" />
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
@@ -44,7 +45,7 @@
       <ToolNumber>000200128684</ToolNumber>
       <Channel>
         <host>127.0.0.1</host>
-        <port>61299</port>
+        <port>62979</port>
         <ssl>False</ssl>
       </Channel>
       <ToolOptions>

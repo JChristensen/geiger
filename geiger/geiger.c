@@ -40,8 +40,9 @@
 	
 	Change log:
 	8/4/11 1.00: Initial release for Chaos Camp 2011!
-	25Jan2014 by Jack Christensen: Store default beep mode (on or off) in EEPROM. User can change the default
-								   by pressing the mute button while powering the Geiger counter on.
+	25Jan2014 by Jack Christensen
+				 Store default beep mode (on or off) in EEPROM. User can change the default
+				 by pressing the mute button while powering the Geiger counter on.
 
 
 		Copyright 2011 Jeff Keyzer, MightyOhm Engineering
@@ -99,7 +100,7 @@ void checkevent(void);	// flash LED and beep the piezo
 void sendreport(void);	// log data over the serial port
 
 // Global variables
-uint8_t beepDefault;
+EEMEM uint8_t beepDefault;		// power-on beep default stored in EEPROM
 volatile uint8_t nobeep;		// flag used to mute beeper
 volatile uint16_t count;		// number of GM events that has occurred
 volatile uint16_t slowcpm;		// GM counts per minute in slow mode
@@ -322,8 +323,8 @@ int main(void)
 	PORTD |= _BV(PD3);	// enable internal pull up resistor on pin connected to button
 	
 	nobeep = eeprom_read_byte(&beepDefault);	// read the current beep default from EEPROM
-	if ((PIND & _BV(PD3)) == 0)	{				// Does the user want to change the beep default?
-		nobeep = !nobeep;
+	if ((PIND & _BV(PD3)) == 0)	{				// does the user want to change the beep default?
+		nobeep = !nobeep;						// yes, change it and write it back to EEPROM
 		eeprom_write_byte(&beepDefault, nobeep);		
 	}
 		

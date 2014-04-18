@@ -1,1 +1,4 @@
 geiger/Debug/*.*
+*.atsuo
+*.cppproj
+geiger/*.cppproj
